@@ -1,8 +1,8 @@
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\bin\Debug\funkcje.exe
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\bin\Debug\funkcje.pdb
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\obj\x86\Debug\funkcje.Form1.resources
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\obj\x86\Debug\funkcje.Properties.Resources.resources
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\obj\x86\Debug\funkcje.csproj.GenerateResource.Cache
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\obj\x86\Debug\funkcje.exe
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\obj\x86\Debug\funkcje.pdb
-C:\Users\Krzychu\Desktop\VISUAL_CPP\funkcje\funkcje\obj\x86\Debug\funkcje.csprojResolveAssemblyReference.cache
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\bin\Debug\funkcje.exe
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\bin\Debug\funkcje.pdb
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.funkcje.resources
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.Properties.Resources.resources
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.csproj.GenerateResource.Cache
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.exe
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.pdb
+C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.csprojResolveAssemblyReference.cache

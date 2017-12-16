@@ -6,50 +6,94 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace funkcje
 {
-    public partial class Form1 : Form
+    public partial class funkcje : Form
     {
-        public Form1()
+        public funkcje()
         {
             InitializeComponent();
         }
 
-        double liczba;
+
+        private void funkcje_Load(object sender, EventArgs e)
+        {
+            wykres.Series.Clear();
+
+        }
 
         double liniowa(double a, double b, double x)
         {
             return (a * x + b);
         }
 
-        private void generuj_Click(object sender, EventArgs e)
+        static int nr_serii;
+        private void rysuj_Click(object sender, EventArgs e)
         {
-            liczba = double.Parse(wzor.Text);
-            wzor.Text = (Math.Pow(liczba,2)).ToString();
+            
+            double a, b;
+            double x_1, x_2;
+            if (Double.TryParse(a_lin_tb.Text, out a))
+                a = double.Parse(a_lin_tb.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej a", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Double.TryParse(b_lin_tb.Text, out b))
+                b = double.Parse(b_lin_tb.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej b" ,"Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            if (Double.TryParse(x_min.Text, out x_1))
+                x_1 = double.Parse(x_min.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej min.","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            if (Double.TryParse(x_max.Text, out x_2))
+                x_2 = double.Parse(x_max.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej max.","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            
+            wykres.Series.Add(new Series("liniowa " + nr_serii.ToString() ) );
+            wykres.Series[nr_serii].ChartType = SeriesChartType.Line;
+            wykres.Series[nr_serii].BorderWidth = 2;
+
+            for (double i = x_1; i <= x_2; i += 0.1)
+            {
+                wykres.Series[nr_serii].Points.AddXY(i, liniowa(a, b, i));
+            }
+            nr_serii++;
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        
+        private void usun_but_Click(object sender, EventArgs e)
         {
-            //Wykres.ChartAreas[0].AxisY.ScaleView.Zoom(-15 , 15); // powiększenie Y
-            //Wykres.ChartAreas[0].AxisX.ScaleView.Zoom(-15 , 15);  // powiększenie X
-            //Wykres.ChartAreas[0].CursorX.IsUserEnabled = true;
-            //Wykres.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
-            //Wykres.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
-            for (int i = -15; i <= 15; i++)
+            int i = int.Parse(usun_serie.Text);
+            if (i>=0 && i<nr_serii)
             {
-                Wykres.Series[0].Points.AddXY(i,liniowa(2, 4, i));
-                //Wykres.Series[1].Points.AddXY(i, liniowa(5, 2, i));
+                wykres.Series.RemoveAt(i);
+                nr_serii--;
             }
-            for (int i = -15; i <= 15; i++)
+            else
             {
-                Wykres.Series[0].Points.AddXY(i, liniowa(7, 5, i));
-                //Wykres.Series[1].Points.AddXY(i, liniowa(5, 2, i));
+                MessageBox.Show("Błędny numer serii");
             }
-
+               
+            
         }
 
         
+
+
+
     }
 }
