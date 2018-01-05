@@ -15,7 +15,6 @@ namespace funkcje
         public funkcje()
         {
             InitializeComponent();
-            
         }
 
 
@@ -54,77 +53,23 @@ namespace funkcje
             return ((A * Math.Sin(b * x )) +c);
         }
 
+        double a, b, c, A; // parametry funkcji
+        double x_1, x_2;   // zakres osi OX
         static int nr_serii;
+
+
+
         private void rysuj_Click(object sender, EventArgs e)
         {
             //if(nr_serii==0)wykres.Series.RemoveAt(0);
-            double a, b;
-            double c, A;
-            double x_1, x_2;
-            if (Double.TryParse(a_lin_tb.Text, out a))
-                a = double.Parse(a_lin_tb.Text);
+            if (dane_wejsciowe())
+            {
+                rysuj_funkcje();
+                nr_serii++;
+            }
             else
-            {
-                MessageBox.Show("Błędny format danej a", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-            if (Double.TryParse(b_lin_tb.Text, out b))
-                b = double.Parse(b_lin_tb.Text);
-            else
-            {
-                MessageBox.Show("Błędny format danej b" ,"Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            if (Double.TryParse(x_min.Text, out x_1))
-                x_1 = double.Parse(x_min.Text);
-            else
-            {
-                MessageBox.Show("Błędny format danej min.","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            if (Double.TryParse(x_max.Text, out x_2))
-                x_2 = double.Parse(x_max.Text);
-            else
-            {
-                MessageBox.Show("Błędny format danej max.","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-
-             if (Double.TryParse(c_tb.Text, out c))
-                 c = double.Parse(c_tb.Text);
-             else
-             {
-                 MessageBox.Show("Błędny format danej c", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 return;
-             }
-
-            if (Double.TryParse(Ampl_tb.Text, out A))
-                A = double.Parse(Ampl_tb.Text);
-            else
-            {
-                MessageBox.Show("Błędny format danej A", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (liniowa_radiob.Checked == true)
-                wykres.Series.Add(new Series("liniowa " + nr_serii.ToString() ) );
-            if (kwadratowa_radiob.Checked == true)
-                wykres.Series.Add(new Series("kwadratowa " + nr_serii.ToString()));
-            if (sinus.Checked == true)
-                wykres.Series.Add(new Series("sinus " + nr_serii.ToString()));
-            wykres.Series[nr_serii].ChartType = SeriesChartType.Line;
-            wykres.Series[nr_serii].BorderWidth = 2;
-
-            for (double i = x_1; i <= x_2; i += 0.1)
-            {
-                if(liniowa_radiob.Checked == true)
-                    wykres.Series[nr_serii].Points.AddXY(i, liniowa(a, b, i));
-                if (kwadratowa_radiob.Checked == true)
-                    wykres.Series[nr_serii].Points.AddXY(i, kwadratowa(a, b, c, i));
-                if (sinus.Checked == true)
-                    wykres.Series[nr_serii].Points.AddXY(i, sinusf(A, b, c, i));
-            }
-            nr_serii++;
+            
         }
         
         private void usun_but_Click(object sender, EventArgs e)
@@ -138,9 +83,103 @@ namespace funkcje
             else
             {
                 MessageBox.Show("Błędny numer serii");
-            }
-               
+            } 
             
+        }
+
+        void rysuj_funkcje()
+        {
+            if (liniowa_radiob.Checked == true)
+                wykres.Series.Add(new Series("liniowa " + nr_serii.ToString()));
+
+            if (kwadratowa_radiob.Checked == true)
+                wykres.Series.Add(new Series("kwadratowa " + nr_serii.ToString()));
+
+            if (sinus.Checked == true)
+                wykres.Series.Add(new Series("sinus " + nr_serii.ToString()));
+
+            wykres.Series[nr_serii].ChartType = SeriesChartType.Line; // typ wykresu
+            wykres.Series[nr_serii].BorderWidth = 2;   // szerokość lini wykresu
+
+            for (double i = x_1; i <= x_2; i += 0.1)
+            {
+                if (liniowa_radiob.Checked == true)
+                    wykres.Series[nr_serii].Points.AddXY(i, liniowa(a, b, i));
+                if (kwadratowa_radiob.Checked == true)
+                    wykres.Series[nr_serii].Points.AddXY(i, kwadratowa(a, b, c, i));
+                if (sinus.Checked == true)
+                    wykres.Series[nr_serii].Points.AddXY(i, sinusf(A, b, c, i));
+                
+
+            }
+        }
+
+        bool dane_wejsciowe()
+        {
+            bool poprawne=true;
+            if (Double.TryParse(a_lin_tb.Text, out a) && Double.TryParse(b_lin_tb.Text, out b) &&
+                Double.TryParse(x_min.Text, out x_1)  && Double.TryParse(x_max.Text, out x_2) && 
+                Double.TryParse(c_tb.Text, out c)     && Double.TryParse(Ampl_tb.Text, out A))
+            {
+                a = double.Parse(a_lin_tb.Text);
+                b = double.Parse(b_lin_tb.Text);
+                c = double.Parse(c_tb.Text);
+                x_1 = double.Parse(x_min.Text);
+                x_2 = double.Parse(x_max.Text);
+                A = double.Parse(Ampl_tb.Text);
+                return poprawne;
+            }
+            else
+            {
+                poprawne = false;
+                MessageBox.Show("Błędny format danej", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return poprawne;
+            }
+            /*   
+            else
+            {
+                MessageBox.Show("Błędny format danej a", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;// poprawne;
+            }
+
+            if (Double.TryParse(b_lin_tb.Text, out b))
+                b = double.Parse(b_lin_tb.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej b", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Double.TryParse(x_min.Text, out x_1))
+                x_1 = double.Parse(x_min.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej min.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Double.TryParse(x_max.Text, out x_2))
+                x_2 = double.Parse(x_max.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej max.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Double.TryParse(c_tb.Text, out c))
+                c = double.Parse(c_tb.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej c", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Double.TryParse(Ampl_tb.Text, out A))
+                A = double.Parse(Ampl_tb.Text);
+            else
+            {
+                MessageBox.Show("Błędny format danej A", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            */
         }
 
     }

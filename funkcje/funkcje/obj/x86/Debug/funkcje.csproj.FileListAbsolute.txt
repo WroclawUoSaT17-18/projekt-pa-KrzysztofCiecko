@@ -6,3 +6,11 @@ C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkc
 C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.exe
 C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.pdb
 C:\Users\Krzychu\Desktop\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.csprojResolveAssemblyReference.cache
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.exe
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.pdb
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\bin\Debug\funkcje.exe
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\bin\Debug\funkcje.pdb
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.csprojResolveAssemblyReference.cache
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.funkcje.resources
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.Properties.Resources.resources
+C:\Users\Krzychu\Desktop\Nowy folder\aplikac\aplikacyjne\funkcje\funkcje\obj\x86\Debug\funkcje.csproj.GenerateResource.Cache
