@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace funkcje.Properties
+namespace funkcje_apl.Properties
 {
 
 
